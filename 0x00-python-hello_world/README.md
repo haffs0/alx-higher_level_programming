@@ -9,3 +9,9 @@ In this project, I began practicing using the interpreter, printing text and var
 
 * **1. Run inline**
   *[1-run inline](./1-run_inline): Bash Script that runs a Python Script saved in the environment variable `$PYCODE`.
+
+* **2. Print**
+  *[2-print](./2-print.py): Run a Python Script to print a strings.
+
+* **3. Print number**
+  *[3-print number](./3-print_number.py): Run a python script to print a number without casting to str.
