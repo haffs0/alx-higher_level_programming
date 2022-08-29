@@ -10,20 +10,23 @@
 int is_palindrome(listint_t **head)
 {
 	int first;
-	listint_t *current;
+	listint_t *current, *prev;
 
 	current = *head;
 
 	if (current == NULL)
-		return (0);
+		return (1);
 
 	first = current->n;
 
 	while (current && current->next && current->next->next != NULL)
+	{
+		prev = current->next->next;
 		current = current->next;
+	}
 
-	if (first == current->n)
-		return (0);
+	if (first == prev->n)
+		return (1);
 
-	return (1);
+	return (0);
 }
