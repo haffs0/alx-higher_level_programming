@@ -1,11 +1,6 @@
 #!usr/bin/python3
 def weight_average(my_list=[]):
-    if not isinstance(my_list, list) or len(my_list) == 0:
-        return 0
-
-    score = 0
-    weight = 0
-    for s, w in my_list:
-        score += (s * w)
-        weight += w
-    return (score / weight)
+    if my_list:
+        return (sum(s * w for s, w in my_list) / sum(w for s, w in my_list))
+    else:
+        return (0)
