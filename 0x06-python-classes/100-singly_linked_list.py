@@ -31,7 +31,7 @@ class Node:
     @next_node.setter
     def next_node(self, value):
         """point to next node"""
-        if not isinstance(value, Node) or value is not None:
+        if not isinstance(value, Node) and value is not None:
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
@@ -48,13 +48,25 @@ class SinglyLinkedList:
     def sorted_insert(self, value):
         """insert data into the to the node."""
 
-        new = Node(value, self.__head)
-        self.__head = new
+        new = Node(value)
+
+        if self.__head is None:
+            self.__head = new
+        elif self.__head.data > value:
+            new.next_node = self.__head
+            self.__head = new
+        else:
+            tmp = self.__head
+            while tmp.next_node is not None and tmp.next_node.data < value:
+                tmp = tmp.next_node
+            new.next_node = tmp.next_node
+            tmp.next_node = new
 
     def __str__(self):
         "print element in the linked lists"""
         values = []
-        while(self.__head):
-            values.append(self.__head.data)
-            self.__head = self.__head.next_node
-        return ("\n".join([str(x) for x in sorted(values)]))
+        tmp = self.__head
+        while(tmp):
+            values.append(str(tmp.data))
+            tmp = tmp.next_node
+        return ("\n".join(values))
