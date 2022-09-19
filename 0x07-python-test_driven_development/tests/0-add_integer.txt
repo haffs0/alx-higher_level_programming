@@ -1,0 +1,30 @@
+The ``0-add_integer`` module
+======================
+
+Using ``add_integer``
+-------------------
+
+``add_integer`` return the addition of its arguments which are either integer of float.  First import
+``add_integer`` from the ``0-add_integer`` module:
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Now use it:
+
+    >>> add_integer(6, 3)
+    9
+
+    >>> add_integer(6, -2)
+    4
+
+    >>> add_integer(2)
+    100
+
+    ``add_integer`` only accept integer or float:
+    >>> add_integer("a")
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+    
+    >>> add_integer(2, "a")
+    Traceback (most recent call last):
+    TypeError: b must be an integer
