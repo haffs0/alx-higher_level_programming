@@ -5,7 +5,7 @@ Using ``matrix_mul``
 -------------------
 
 ``matrix_mul`` return the multiplication of two matrix its arguments which are list of lists.  First import
-``add_integer`` from the ``0-add_integer`` module:
+``matrix_mul`` from the ``100-matrix_mul`` module:
 
     >>> matrix_mul = __import__('100-matrix_mul').matrix_mul
 
