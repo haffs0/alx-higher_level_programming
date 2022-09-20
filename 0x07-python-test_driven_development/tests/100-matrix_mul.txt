@@ -1,0 +1,27 @@
+The ``100-matrix_mul`` module
+======================
+
+Using ``matrix_mul``
+-------------------
+
+``matrix_mul`` return the multiplication of two matrix its arguments which are list of lists.  First import
+``add_integer`` from the ``0-add_integer`` module:
+
+    >>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+Now use it:
+
+    >>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+    [[7, 10], [15, 22]]
+
+    >>> matrix_mul([[1, 2]], [[3, 4], [5, 6]])
+    [[13, 16]]
+
+    ``matrix_mul`` only accept list of lists:
+    >>> matrix_mul(1, [[1,2]])
+    Traceback (most recent call last):
+    TypeError: m_a must be a list
+    
+    >>> matrix_mul([[2,3]], 2)
+    Traceback (most recent call last):
+    TypeError: m_b must be a list
