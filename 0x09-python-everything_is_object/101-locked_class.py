@@ -8,4 +8,4 @@ class LockedClass:
     """prevent user from adding additional variables"""
     
 
-    _slots__ = ["first_name"]
+    __slots__ = ['first_name']
