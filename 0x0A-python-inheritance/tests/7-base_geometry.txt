@@ -1,0 +1,47 @@
+=======================
+How to Use 7-base_geometry.py
+=======================
+
+This module defines a class ``BaseGeometry``.
+
+Instantiation
+=============
+
+``BaseGeometry`` can be instantiated with no arguments, which will return
+an empty list:
+
+::
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> base_geometry = BaseGeometry()
+    >>> type(base_geometry)
+    <class '7-base_geometry.BaseGeometry'>
+
+Check that area method is not implemented.
+
+::
+
+    >>> base_geometry.area()
+    Traceback (most recent call last):
+    Exception: area() is not implemented
+
+::
+
+The method takes non integer or less or equal zero - a TypeError or ValueError will be raised.
+
+::
+
+    >>> base_geometry.integer_validator("my_int", 12)
+
+    >>> base_geometry.integer_validator("name", "John")
+    Traceback (most recent call last):
+    TypeError: name must be an integer
+
+
+    >>> base_geometry.integer_validator("age", 0)
+    Traceback (most recent call last):
+    ValueError: age must be greater than 0
+
+    >>> base_geometry.integer_validator("distance", -4)
+    Traceback (most recent call last):
+    ValueError: distance must be greater than 0
