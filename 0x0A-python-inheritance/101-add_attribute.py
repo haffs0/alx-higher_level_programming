@@ -8,5 +8,5 @@ def add_attribute(obj, key, value):
     """add new attribute"""
     try:
         setattr(obj, key, value)
-    except (TypeError):
-        print("can't add new attribute")
+    except Exception as e:
+        raise TypeError("can't add new attribute")
