@@ -105,7 +105,7 @@ class Rectangle(Base):
         """returns [Rectangle] (<id>) <x>/<y> - <width>/<height>"""
         return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """update the value of the variables"""
         if args and len(args) != 0:
             p = 0
@@ -125,3 +125,28 @@ class Rectangle(Base):
                     self.y = arg
 
                 p += 1
+        elif kwargs and len(kwargs) != 0:
+            for k, v in kwargs.items():
+                if k == 'id':
+                    if v is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = v
+                elif k == 'width':
+                    self.width = v
+                elif k == 'height':
+                    self.height = v
+                elif k == 'x':
+                    self.x = v
+                elif k == 'y':
+                    self.y = v
+
+    def to_dictionary(self):
+        """to dictionary"""
+        return {
+                    'id': self.id,
+                    'width': self.width,
+                    'height': self.height,
+                    'x': self.x,
+                    'y': self.y
+                }
