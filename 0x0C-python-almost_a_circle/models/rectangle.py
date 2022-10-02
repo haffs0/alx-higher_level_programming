@@ -103,4 +103,25 @@ class Rectangle(Base):
 
     def __str__(self):
         """returns [Rectangle] (<id>) <x>/<y> - <width>/<height>"""
-        return f"[Rectangle ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+
+    def update(self, *args):
+        """update the value of the variables"""
+        if args and len(args) != 0:
+            p = 0
+            for arg in args:
+                if p == 0:
+                    if arg is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = arg
+                elif p == 1:
+                    self.width = arg
+                elif p == 2:
+                    self.height = arg
+                elif p == 3:
+                    self.x = arg
+                elif p == 4:
+                    self.y = arg
+
+                p += 1
