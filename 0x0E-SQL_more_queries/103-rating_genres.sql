@@ -1,12 +1,11 @@
-- Lists all genres in the database hbtn_0d_tvshows_rate by their rating.
+-- Lists all genres in the database hbtn_0d_tvshows_rate by their rating.
 -- Records are ordered by descending rating.
-SELECT * FROM (
-  SELECT `name`, SUM(`rate`) AS `rating`
-       FROM `tv_genres` AS g
+SELECT g.`name`, SUM(r.`rate`) AS `rating`
+  FROM `tv_genres` AS g
        INNER JOIN `tv_show_genres` AS s
        ON s.`genre_id` = g.`id`
 
        INNER JOIN `tv_show_ratings` AS r
        ON r.`show_id` = s.`show_id`
-       GROUP BY `name`) AS t
- ORDER BY t.`rating` DESC;
+ GROUP BY g.`name`
+ ORDER BY `rating` DESC;
