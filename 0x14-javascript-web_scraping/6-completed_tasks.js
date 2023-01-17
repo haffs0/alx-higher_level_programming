@@ -5,8 +5,8 @@ request(process.argv[2], function (err, resp, body) {
   if (err) {
     console.log(err);
   } else {
-    const results = {};
-    const json = JSON.parse(body);
+    let results = {};
+    let json = JSON.parse(body);
     for (let i = 0; i < json.length; i++) {
       let task = json[i];
       if (task.completed) {
